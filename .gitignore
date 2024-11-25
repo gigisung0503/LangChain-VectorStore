@@ -1,3 +1,9 @@
+# Google Colab Configuration File
+
+colabConfig.ipynb
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
