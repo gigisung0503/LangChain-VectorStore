@@ -21,3 +21,11 @@ def query_vector_store(query, index, k=5):
     query_vector = embedding_model.encode(query)
     distances, indices = index.search(np.array([query_vector]), k)
     return distances, indices
+
+def add_new_data_to_index(new_pdf_path, index):
+    """Add new pdf."""
+    new_document_text = extract_text_from_pdf(new_pdf_path)  # Extract text from the new PDF
+    new_chunks = chunk_text(new_document_text)               # Chunk the new document
+    new_vectors = text_to_vectors(new_chunks)                # Convert new chunks to vectors
+    index.add(new_vectors)                                   # Add new vectors to the existing index
+    return index
